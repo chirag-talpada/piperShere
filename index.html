@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
@@ -8,9 +7,9 @@
     <title>PiperShare - File Sharing Made Easy</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <img src="./images/logo.png" alt="PiperShare logo" class="logo">
+    <div><img src="./images/logo.png" alt="PiperShare logo" class="logo"></div>
+    <div class="main-container">
     <section class="upload-container">
         <form >
             <div class="drop-zone">
@@ -19,8 +18,8 @@
                     <img src="./images/file.svg" draggable="false" class="left" alt="File Icon">
                     <img src="./images/file.svg" draggable="false" class="right" alt="File Icon">
                 </div>
-                <input type="file" id="fileInput">
-                <div class="title">Drop your Files here or, <span id="browseBtn">browse</span></div>
+                <input type="file" id="fileInput" style="display: none">
+                <div class="title">Drop your Files here or, <span id="browseBtn">browser</span></div>
             </div>
         </form>
         <div class="progress-container">
@@ -33,18 +32,13 @@
                 </div>
                 <div class="progress-bar"></div>
             </div>
-
         </div>
         <div class="sharing-container">
             <p class="expire">Link expires in 24 hrs</p>
-
-
             <div class="input-container">
                 <input type="text" id="fileURL" readonly>
                 <img src="./images/copy-icon.svg" id="copyURLBtn" alt="copy to clipboard icon">
             </div>
-
-
             <p class="email-info">Or Send via Email</p>
             <div class="email-container">
                 <form id="emailForm">
@@ -52,7 +46,6 @@
                         <label for="fromEmail">Your email</label>
                         <input type="email" autocomplete="email" required name="from-email" id="fromEmail">
                     </div>
-
                     <div class="filed">
                         <label for="toEmail">Receiver's email</label>
                         <input type="email" required autocomplete="receiver" name="to-email" id="toEmail">
@@ -65,10 +58,10 @@
         </div>
     </section>
     <div class="image-vector">
-        <img src="./images/undraw-upload.svg" style="height: 100%; width:auto;margin-left: 20px;" />
+        <img src="./images/undraw-upload.svg" style="width: 100%;" />
     </div>
+</div> 
     <div class="toast">Sample message</div>
     <script src="index.js"></script>
 </body>
-
 </html>

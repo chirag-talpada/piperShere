@@ -1,66 +1,41 @@
+* {
+  box-sizing:border-box;  
+  margin:0;
+  padding:0; 
+}
+
+
 :root {
   --main-bg-color: #edf5fe;
   --light-blue: #03a9f4;
   --border-color: #0288d147;
-  --container-width: 500px;
+  --container-width: 100%;
 }
 
 body {
   font-family: system-ui;
   background: var(--main-bg-color);
-  height: 98vh;
-  overflow: hidden;
+}
+
+.main-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
-  position: absolute;
-  top: 10px;
-  left: 10px;
   width: 150px;
-}
-
-.image-vector {
-  width: 50vw;
-  height: 50vh;
-  background-size: contain;
-}
-
-body,
-.upload-container,
-.drop-zone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.upload-container,
-.drop-zone {
-  flex-direction: column;
+  display: block;
+  margin: 10px 0 20px 10px;
 }
 
 .upload-container {
   background: #ffffff;
   border-radius: 25px;
   box-shadow: 0px 20px 20px 0px #00000017;
-  margin-top: 49px;
-}
-
-.drop-zone {
-  width: var(--container-width);
-  min-height: 200px;
-  border: 2px dashed var(--border-color);
-  border-radius: 10px;
-  margin: 30px;
-  transition: 0.2s all ease-in;
-}
-
-/* will be added when user drags */
-.drop-zone.dragged {
-  background: var(--main-bg-color);
-  border-color: #0288d1;
-}
-
-.drop-zone input {
-  display: none;
+  padding:30px 30px 10px 30px;
+  margin:20px;
+  width:50%;
 }
 
 .icon-container {
@@ -71,9 +46,9 @@ body,
 
 .icon-container img {
   width: 75px;
-  position: absolute;
   transition: transform 0.25s ease-in-out;
   transform-origin: bottom;
+  position: absolute;
 }
 
 .icon-container .center {
@@ -95,16 +70,19 @@ body,
   transform: rotate(-10deg) scale(0.9) translateX(-20px);
 }
 
-.title {
-  font-size: large;
+.drop-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: var(--container-width);
+  min-height: 200px;
+  border: 2px dashed var(--border-color);
+  border-radius: 10px;
+  transition: 0.2s all ease-in;
+  margin-bottom:20px;
 }
 
-#browseBtn {
-  color: #2196f3;
-  cursor: pointer;
-}
-
-/* uploading progress styles */
 .progress-container {
   border: 2px solid var(--main-bg-color);
   width: var(--container-width);
@@ -149,7 +127,16 @@ body,
   transform-origin: left;
 }
 
-/* sharing container style */
+.title {
+  font-size: large;
+  margin: 0px 20px;
+}
+
+#browseBtn {
+  color: #2196f3;
+  cursor: pointer;
+}
+
 .sharing-container {
   margin-bottom: 25px;
   width: var(--container-width);
@@ -159,12 +146,13 @@ body,
 
 .sharing-container p {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .sharing-container .expire {
   font-size: 16px;
   opacity: 0.7;
-  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .sharing-container .input-container {
@@ -247,73 +235,42 @@ body,
 }
 
 .toast {
-  position: absolute;
-  bottom: 10px;
+  position: fixed;
   right: 50%;
-  transform: translate(50%, 160px);
+  transform: translate(50%, 100px);
   padding: 10px 20px;
   background: var(--light-blue);
   color: #fff;
   border-radius: 5px;
   font-size: 18px;
-  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 10px 15px -3px rgb(0 0 0 / 10%), 0px 4px 6px -2px rgb(0 0 0 / 5%);
   transition: transform ease-in-out 0.2s;
+  bottom: 10px;
 }
 
 .show.toast {
   transform: translate(50%, 0);
 }
 
-@media screen and (max-width: 900px) {
-  :root {
-    --container-width: 320px;
-  }
-  .image-vector {
-    display: none;
-  }
+@media screen and (max-width: 580px) {
+ 
   .email-container .filed {
+    width: 100%;
     flex-direction: column;
-  }
-  .email-container .filed {
-    width: 500px;
-  }
-
-  .logo {
-    width: 150px;
-    display:block;
-    position:absolute;
-    left:0;
-    right:0;
-    top:10px;
-    margin:auto;
-  }
-  
+  } 
 }
 
 @media screen and (max-width: 768px) {
-  :root {
-    --container-width: 420px;
-  }
-  .email-container .filed {
-    width: 100%;
-  } 
+    .logo{
+      margin:20px auto 0px;
+    }
 }
 
-@media screen and (max-width: 425px) {
-  :root {
-    --container-width: 320px;
-  }
-  .email-container .filed {
-    width: 100%;
-  } 
-}
-
-@media screen and (max-width: 320px) {
-  :root {
-    --container-width: 260px;
-  }
-  .email-container .filed {
-    width: 100%;
-  } 
+@media screen and (max-width: 1024px) {
+    .image-vector{
+      display:none;
+    }
+    .upload-container{
+      width:85%;
+    }
 }
