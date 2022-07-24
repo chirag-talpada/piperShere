@@ -70,6 +70,11 @@ body {
   transform: rotate(-10deg) scale(0.9) translateX(-20px);
 }
 
+.drop-zone.dragged {
+  background: var(--main-bg-color);
+  border-color: #0288d1;
+}
+
 .drop-zone {
   display: flex;
   align-items: center;
